@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function validate()
+            {
+                var x=document.form["myform"]["title"].value;
+                if(x == "")
+                {
+                    alert("Name must be filled out");
+                    return false;
+                }
+                var y=document.form["myform"]["description"].value;
+                if(y == "")
+                {
+                    alert("description must be flled out");
+                    return false;
+                }
+                
+                const formData=new FormData();
+               // formData.append('image',file,file.name)
+                formData.append("title",x);
+                formData.append("description",y);
+                formData.getAll('title');
+                console.log(x);
+                //console.log(formData.get('image'));
+                
+            }
+        </script>
+        <h2>Windows Registation Form</h2>
+        <form name="myform" action="/" method="post" onsubmit="return validate()">
+            Title:
+            <input type="text" name="title"/><br>
+            Description:
+            <input type="text" name="description"/><br>
+            Image:
+            <input type="file" name="image"><br>
+            <button type="submit" name="submit">Submit</button>
+            <button type ="reset" name="reset">Reset</button>
+        </form>
+    </body>
+</html>
